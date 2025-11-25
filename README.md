@@ -1,24 +1,27 @@
-# OBJECT DECTECTION – Real-Time Object Detection using YOLOv8 + ByteTrack
+# Motion Detection using OpenCV
 
-This project implements a *real-time object detection and tracking system* using *YOLOv8 (Ultralytics)* and *ByteTrack*.  
-The system uses a webcam feed to detect objects such as people, chairs, bottles, laptops, etc., and displays bounding boxes, class names, and confidence values in real time.
+This is a simple computer vision project that detects motion through the webcam.
+Whenever something moves in front of the camera, the program marks the moving area with a rectangle.
+It is a basic demonstration of real-time motion tracking using OpenCV.
 
----
+## Requirements
 
-## 🚀 Features
+- Python 3
+- OpenCV
 
-- Real-time object detection using *YOLOv8n*
-- Object tracking using *ByteTrack*
-- Smooth bounding box overlays using Ultralytics built-in plot()
-- Saves output video (AI vision.avi)
-- Works on any webcam
-- Lightweight and runs on CPU or GPU
+Install OpenCV using:
+pip install opencv-python
 
----
+## How to Run
 
-## 📌 Requirements
+Make sure your webcam is connected, then run:
+python Motion.py
 
-Install dependencies:
+## How it works
 
-```bash
-pip install ultralytics opencv-python
+- The webcam captures video frames continuously.
+- A background subtractor (cv2.createBackgroundSubtractorMOG2) creates a model of the static scene.
+- Each new frame is compared with the background to find changes.
+- Noise is reduced using thresholding, erosion, and dilation.
+- Contours are detected on the processed mask.
+- Rectangles are drawn around contour regions that are large enough to be considered motion.
