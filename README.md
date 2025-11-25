@@ -25,3 +25,4 @@ python Motion.py
 - Noise is reduced using thresholding, erosion, and dilation.
 - Contours are detected on the processed mask.
 - Rectangles are drawn around contour regions that are large enough to be considered motion.
+
